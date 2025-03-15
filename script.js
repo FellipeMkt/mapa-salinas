@@ -8,8 +8,8 @@ var map = L.map('map', {
     scrollWheelZoom: true  // Habilita o zoom com a roda do mouse
 });
 
-// Definir as dimensões da imagem do mapa
-var w = 2000, h = 1500; // Ajuste para o tamanho original da sua imagem
+// Definir as dimensões da imagem original
+var w = 2000, h = 1500;  // Ajuste conforme o tamanho real da sua imagem
 var bounds = [[0, 0], [h, w]];  // Limites da imagem
 
 // Adicionar a imagem do mapa
@@ -27,10 +27,11 @@ map.options.maxBoundsViscosity = 1.0;
 // Redimensionar a imagem para se ajustar responsivamente
 map.on('resize', function () {
     var size = map.getSize();
-    var widthRatio = size.x / w;
-    var heightRatio = size.y / h;
-    var scale = Math.min(widthRatio, heightRatio);
+    var widthRatio = size.x / w;  // Proporção da largura
+    var heightRatio = size.y / h; // Proporção da altura
+    var scale = Math.min(widthRatio, heightRatio);  // Seleciona a menor proporção para garantir que a imagem não ultrapasse os limites da tela
 
+    // Nova altura e largura da imagem baseada na escala calculada
     var newBounds = [[0, 0], [h * scale, w * scale]];
     imageOverlay.setBounds(newBounds); // Atualiza a posição da imagem conforme o redimensionamento
     map.fitBounds(newBounds); // Ajusta a exibição do mapa conforme a nova imagem
