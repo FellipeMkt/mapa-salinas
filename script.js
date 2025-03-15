@@ -1,15 +1,16 @@
 // Criar o mapa interativo
 var map = L.map('map', {
     minZoom: 1,
-    maxZoom: 4,
+    maxZoom: 1,   // Limite o zoom para 1
     center: [0, 0],
-    zoom: 1,
-    crs: L.CRS.Simple
+    zoom: 1,      // Zoom inicial
+    crs: L.CRS.Simple,
+    scrollWheelZoom: false  // Desativa o zoom com a roda do mouse
 });
 
 // Definir as dimensões da imagem do mapa
-var w = 2000, h = 1500; // Ajuste para o tamanho da sua imagem
-var bounds = [[0, 0], [h, w]];  // Definir os limites da imagem
+var w = 2000, h = 1500; // Ajuste as dimensões da sua imagem conforme necessário
+var bounds = [[0, 0], [h, w]];  // Limites da imagem
 
 // Adicionar a imagem do mapa
 L.imageOverlay('mapa.jpg', bounds).addTo(map);
@@ -21,4 +22,4 @@ map.fitBounds(bounds);
 map.setMaxBounds(bounds);
 
 // Ajustar a resistência ao arrastar para garantir que o mapa não saia dos limites
-map.options.maxBoundsViscosity = 1.0;  // Pode ajustar de 0 a 1, sendo 1 mais rígido
+map.options.maxBoundsViscosity = 1.0;
