@@ -10,28 +10,22 @@
 body {
     background-color: #f4f4f4;
     text-align: center;
-    height: 100%;  /* Garantir que o corpo ocupe 100% da altura */
+    height: 100%;
 }
 
 /* Cabeçalho estilizado */
 header {
-    background: #026f7c;
+    background: #f27c02; /* Cor laranja */
     color: white;
     padding: 15px;
     font-size: 1.5em;
-    position: fixed; /* Fixo no topo */
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
 }
 
 /* Estilizando o Mapa */
 #map {
     width: 100%;
-    height: 100vh; /* Garantir que o mapa ocupe toda a altura da tela */
+    height: 100vh; /* O mapa ocupa 100% da altura da tela */
     border: 3px solid #026f7c;
-    margin-top: 70px; /* Adiciona margem para o cabeçalho fixo */
 }
 
 /* Rodapé estilizado */
