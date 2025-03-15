@@ -1,15 +1,15 @@
 // Criar o mapa interativo
 var map = L.map('map', {
-    minZoom: 1,
-    maxZoom: 1,   // Limite o zoom para 1
-    center: [0, 0],
-    zoom: 1,      // Zoom inicial
+    minZoom: 1,    // Defina o zoom mínimo que desejar
+    maxZoom: 4,    // Defina o zoom máximo que desejar (se necessário)
+    center: [0, 0], // Centraliza a imagem
+    zoom: 1,       // Zoom inicial
     crs: L.CRS.Simple,
-    scrollWheelZoom: false  // Desativa o zoom com a roda do mouse
+    scrollWheelZoom: true  // Habilita o zoom com a roda do mouse
 });
 
 // Definir as dimensões da imagem do mapa
-var w = 2000, h = 1500; // Ajuste as dimensões da sua imagem conforme necessário
+var w = 2000, h = 1500; // Ajuste para o tamanho da sua imagem
 var bounds = [[0, 0], [h, w]];  // Limites da imagem
 
 // Adicionar a imagem do mapa
