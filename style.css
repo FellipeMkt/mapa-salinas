@@ -10,12 +10,11 @@
 body {
     background-color: #f4f4f4;
     text-align: center;
-    height: 100%;
 }
 
 /* Cabeçalho estilizado */
 header {
-    background: #f27c02; /* Cor laranja */
+    background: #026f7c;
     color: white;
     padding: 15px;
     font-size: 1.5em;
@@ -24,7 +23,7 @@ header {
 /* Estilizando o Mapa */
 #map {
     width: 100%;
-    height: 100vh; /* O mapa ocupa 100% da altura da tela */
+    height: 80vh;
     border: 3px solid #026f7c;
 }
 
