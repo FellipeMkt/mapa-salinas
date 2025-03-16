@@ -20,6 +20,11 @@ map.fitBounds(bounds);
 // Limitar a área de arrasto para não sair da imagem
 map.setMaxBounds(bounds);
 
+// Garantir que o mapa se ajuste corretamente em diferentes telas
+window.addEventListener('resize', () => {
+    map.invalidateSize();
+});
+
 // Alternar entre modo claro e escuro
 const toggleTheme = document.getElementById('toggleTheme');
 toggleTheme.addEventListener('click', () => {
