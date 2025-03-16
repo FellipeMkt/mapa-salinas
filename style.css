@@ -49,6 +49,7 @@ footer {
     font-size: 1em;
     width: 100%;
     margin-top: auto; /* Faz o footer se manter na parte inferior */
+    position: relative;  /* Garante que o rodapé fique sempre na parte inferior */
 }
 
 /* Responsividade para telas menores */
