@@ -25,12 +25,9 @@ window.addEventListener('resize', () => {
     map.invalidateSize();
 });
 
-// Coordenadas da área que você quer centralizar no mapa
-const areaCoordenadas = [0.5, 0.5];  // Exemplo de coordenadas
+// Botão para centralizar a imagem
+const centralizeBtn = document.getElementById('centralizeBtn'); // botão de centralização
 
-// Alterar o comportamento do botão
-const centralizarBtn = document.getElementById('toggleTheme');
-centralizarBtn.addEventListener('click', () => {
-    // Centralizar no ponto desejado
-    map.setView(areaCoordenadas, 2); // O '2' é o nível de zoom, ajuste conforme necessário
+centralizeBtn.addEventListener('click', () => {
+    map.setView([0, 0], 1); // Centraliza a imagem no ponto inicial (coordenadas [0, 0] com zoom 1)
 });
