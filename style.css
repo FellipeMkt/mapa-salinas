@@ -11,6 +11,9 @@ body {
     background-color: #f4f4f4;
     text-align: center;
     transition: background 0.3s;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Cabeçalho estilizado */
@@ -23,11 +26,19 @@ header {
     align-items: center;
 }
 
+/* Logo maior */
+header .logo {
+    width: 200px;  /* Ajuste o tamanho conforme necessário */
+    height: auto;
+    object-fit: contain;  /* Garante que a imagem mantenha suas proporções */
+}
+
 /* Estilizando o Mapa */
 #map {
     width: 100%;
     height: 80vh;
     border: 3px solid #ff6600;
+    margin-bottom: 20px; /* Remover qualquer espaçamento extra abaixo do mapa */
 }
 
 /* Rodapé estilizado */
@@ -36,9 +47,8 @@ footer {
     color: white;
     padding: 10px;
     font-size: 1em;
-    position: relative;
-    bottom: 0;
     width: 100%;
+    margin-top: auto; /* Faz o footer se manter na parte inferior */
 }
 
 /* Responsividade para telas menores */
