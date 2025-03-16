@@ -1,18 +1,18 @@
 // Criar o mapa interativo
 var map = L.map('map', {
-    minZoom: 1,    
+    minZoom: -2,  // Agora permite zoom negativo
     maxZoom: 4,    
     center: [0, 0], 
     zoom: 1,       
     crs: L.CRS.Simple,
     scrollWheelZoom: true,  
-    dragging: true, // Garante que o arrastar esteja ativado
-    maxBoundsViscosity: 1.0  // Mantém os limites fixos
+    dragging: true, 
+    maxBoundsViscosity: 1.0
 });
 
 // Carregar a imagem e definir limites automaticamente
 var image = new Image();
-image.src = 'mapa.jpg';  // Certifique-se de que o nome está correto
+image.src = 'mapa.jpg'; 
 
 image.onload = function() {
     var w = image.width;
@@ -25,12 +25,12 @@ image.onload = function() {
     // Ajustar para caber na tela
     map.fitBounds(bounds);
     
-    // **Corrigindo o problema da limitação no celular**
+    // Mantém os limites corretamente no celular e desktop
     map.setMaxBounds(bounds);
 
-    // **Evita que o mapa perca os limites no celular**
+    // Corrige problemas de redimensionamento no celular
     window.addEventListener('resize', function() {
-        map.invalidateSize();  // Força o Leaflet a recalcular o tamanho do mapa
-        map.setMaxBounds(bounds); // Reaplica os limites corretamente
+        map.invalidateSize();
+        map.setMaxBounds(bounds);
     });
 };
