@@ -1,6 +1,6 @@
 // Criar o mapa interativo
 var map = L.map('map', {
-    minZoom: -1, 
+    minZoom: -1, // Permite zoom out extra
     maxZoom: 4,
     center: [0, 0],
     zoom: 1,
@@ -8,7 +8,7 @@ var map = L.map('map', {
 });
 
 // Definir as dimensões da imagem do mapa
-var w = 2000, h = 1500; // Ajuste conforme sua imagem
+var w = 2000, h = 1500; // Ajuste para o tamanho real da sua imagem
 var bounds = [[0, 0], [h, w]];
 
 // Adicionar a imagem do mapa
@@ -25,9 +25,8 @@ window.addEventListener('resize', () => {
     map.invalidateSize();
 });
 
-// Centralizar a imagem no mapa
-const centralizeBtn = document.getElementById('centralizeBtn'); // botão de centralização
-
+// Centralizar o mapa na posição inicial
+const centralizeBtn = document.getElementById('centralizeBtn');
 centralizeBtn.addEventListener('click', () => {
-    map.setView([0, 0], 1); // Centraliza a imagem no ponto inicial (coordenadas [0, 0] com zoom 1)
+    map.setView([0, 0], 1);  // Centraliza no ponto (0, 0) com zoom 1
 });
