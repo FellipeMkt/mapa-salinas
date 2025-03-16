@@ -25,8 +25,12 @@ window.addEventListener('resize', () => {
     map.invalidateSize();
 });
 
-// Alternar entre modo claro e escuro
-const toggleTheme = document.getElementById('toggleTheme');
-toggleTheme.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
+// Coordenadas da área que você quer centralizar no mapa
+const areaCoordenadas = [0.5, 0.5];  // Exemplo de coordenadas
+
+// Alterar o comportamento do botão
+const centralizarBtn = document.getElementById('toggleTheme');
+centralizarBtn.addEventListener('click', () => {
+    // Centralizar no ponto desejado
+    map.setView(areaCoordenadas, 2); // O '2' é o nível de zoom, ajuste conforme necessário
 });
