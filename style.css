@@ -67,9 +67,20 @@ footer {
 
     #map {
         height: 60vh;
+        margin-top: 80px; /* Adiciona mais espaço no topo para o logo */
     }
 
     footer {
         font-size: 0.9em;
+    }
+
+    /* Sanfona para esconder os ícones no celular */
+    #toggleTheme {
+        display: none;  /* Oculta o botão de alternar tema */
+    }
+
+    /* Exemplo de ícone que deve desaparecer */
+    .menu-icons {
+        display: none;  /* Oculta o menu de ícones */
     }
 }
