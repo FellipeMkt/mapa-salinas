@@ -8,49 +8,63 @@
 
 /* Corpo da página */
 body {
-    background-color: #FFFFFF; /* Cor de fundo branco */
-    color: #333333;            /* Cor do texto */
+    background-color: #f0f0f0;
+    color: #333;
     text-align: center;
     font-size: 16px;
-    margin: 0;
 }
 
-/* Cabeçalho estilizado sem barra laranja */
+/* Cabeçalho */
 header {
-    background: none;           /* Sem a barra laranja */
-    position: fixed;            /* Fixa o header no topo */
+    background: #007bff; /* Azul */
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 10;
     padding: 20px;
     display: flex;
-    justify-content: center;    /* Centraliza o logo */
+    justify-content: center;
     align-items: center;
 }
 
-/* Logo flutuante */
+/* Logo */
 .logo-container {
-    position: absolute;         /* Faz o logo flutuar */
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Centraliza o logo */
+    transform: translate(-50%, -50%);
 }
 
 .logo {
     height: 50px;
 }
 
-/* Estilizando o Mapa */
+/* Mapa */
 #map {
     width: 100%;
     height: 80vh;
-    margin-top: 60px; /* Dá espaço para o logo fixado */
+    margin-top: 60px;
     border: none;
+}
+
+/* Botão centralizar */
+#centralizeBtn {
+    background: #28a745; /* Verde */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    border-radius: 5px;
+}
+
+#centralizeBtn:hover {
+    background: #218838; /* Verde mais escuro */
 }
 
 /* Rodapé */
 footer {
-    background: #FF6600; /* Cor principal laranja */
+    background: #007bff; /* Azul */
     color: white;
     padding: 10px;
     font-size: 1em;
@@ -59,7 +73,7 @@ footer {
     width: 100%;
 }
 
-/* Responsividade para telas menores */
+/* Responsividade */
 @media (max-width: 768px) {
     header {
         font-size: 1.2em;
@@ -67,20 +81,16 @@ footer {
 
     #map {
         height: 60vh;
-        margin-top: 80px; /* Adiciona mais espaço no topo para o logo */
+        margin-top: 80px;
     }
 
     footer {
         font-size: 0.9em;
     }
 
-    /* Sanfona para esconder os ícones no celular */
-    #toggleTheme {
-        display: none;  /* Oculta o botão de alternar tema */
-    }
-
-    /* Exemplo de ícone que deve desaparecer */
-    .menu-icons {
-        display: none;  /* Oculta o menu de ícones */
+    /* Ajuste dos botões no celular */
+    #centralizeBtn {
+        width: 100%;
+        padding: 12px 0;
     }
 }
