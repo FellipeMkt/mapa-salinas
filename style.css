@@ -36,7 +36,7 @@ header .logo {
 /* Estilizando o Mapa */
 #map {
     width: 100%;
-    height: 100vh;
+    height: 80vh;
     border: 3px solid #00aaff;
     margin-bottom: 20px; /* Remover qualquer espaçamento extra abaixo do mapa */
 }
