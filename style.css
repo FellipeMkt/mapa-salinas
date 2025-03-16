@@ -13,10 +13,10 @@ body {
     transition: background 0.3s;
 }
 
-/* Cabeçalho estilizado */
+/* Cabeçalho estilizado sem a barra laranja */
 header {
-    background: #ff6600;
-    color: white;
+    background: none;  /* Remove a cor de fundo */
+    color: black;      /* Ajuste a cor do texto, se necessário */
     padding: 15px;
     font-size: 1.5em;
     display: flex;
@@ -24,7 +24,7 @@ header {
     align-items: center;
 }
 
-/* Botão de alternar tema */
+/* Botão de centralizar no mapa */
 #toggleTheme {
     background: white;
     color: #ff6600;
