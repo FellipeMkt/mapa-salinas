@@ -1,46 +1,36 @@
 // Criar o mapa interativo
 var map = L.map('map', {
-    minZoom: 1,    // Defina o zoom mínimo que desejar
-    maxZoom: 4,    // Defina o zoom máximo que desejar
-    center: [0, 0], // Centraliza a imagem
-    zoom: 1,       // Zoom inicial
+    minZoom: 1,    
+    maxZoom: 4,    
+    center: [0, 0], 
+    zoom: 1,       
     crs: L.CRS.Simple,
-    scrollWheelZoom: true  // Habilita o zoom com a roda do mouse
+    scrollWheelZoom: true,  
+    dragging: true, // Garante que o arrastar esteja ativado
+    maxBoundsViscosity: 1.0  // Mantém os limites fixos
 });
 
-// A imagem não possui dimensões fixas, então não declaramos `w` e `h` manualmente
-// Vamos calcular isso com base na imagem
+// Carregar a imagem e definir limites automaticamente
 var image = new Image();
-image.src = 'mapa.jpg';  // Coloque o caminho da sua imagem aqui
+image.src = 'mapa.jpg';  // Certifique-se de que o nome está correto
 
-// Quando a imagem carregar, definimos os limites com base nas suas dimensões
 image.onload = function() {
-    var w = image.width;  // Largura da imagem
-    var h = image.height; // Altura da imagem
-    var bounds = [[0, 0], [h, w]];  // Limites da imagem
+    var w = image.width;
+    var h = image.height;
+    var bounds = [[0, 0], [h, w]];
 
-    // Adicionar a imagem do mapa
+    // Adicionar a imagem ao mapa
     var imageOverlay = L.imageOverlay(image.src, bounds).addTo(map);
 
-    // Ajustar a exibição inicial para caber na tela, garantindo que a imagem inteira seja visível
+    // Ajustar para caber na tela
     map.fitBounds(bounds);
-
-    // Limitar o movimento do mapa para não sair dos limites da imagem
+    
+    // **Corrigindo o problema da limitação no celular**
     map.setMaxBounds(bounds);
 
-    // Ajustar a resistência ao arrastar para garantir que o mapa não saia dos limites
-    map.options.maxBoundsViscosity = 1.0;
-
-    // Redimensionar a imagem para se ajustar responsivamente
-    map.on('resize', function () {
-        var size = map.getSize();
-        var widthRatio = size.x / w;  // Proporção da largura
-        var heightRatio = size.y / h; // Proporção da altura
-        var scale = Math.min(widthRatio, heightRatio);  // Seleciona a menor proporção para garantir que a imagem não ultrapasse os limites da tela
-
-        // Nova altura e largura da imagem baseada na escala calculada
-        var newBounds = [[0, 0], [h * scale, w * scale]];
-        imageOverlay.setBounds(newBounds); // Atualiza a posição da imagem conforme o redimensionamento
-        map.fitBounds(newBounds); // Ajusta a exibição do mapa conforme a nova imagem
+    // **Evita que o mapa perca os limites no celular**
+    window.addEventListener('resize', function() {
+        map.invalidateSize();  // Força o Leaflet a recalcular o tamanho do mapa
+        map.setMaxBounds(bounds); // Reaplica os limites corretamente
     });
 };
