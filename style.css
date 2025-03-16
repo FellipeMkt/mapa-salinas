@@ -13,14 +13,14 @@ body {
     transition: background 0.3s;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100vh;  /* Garante que a altura mínima seja 100% da tela */
 }
 
 /* Cabeçalho estilizado */
 header {
-    background: #00aaff;
+    background: #00aaff;  /* Cor alterada para #00aaff */
     color: white;
-    padding: 1px;
+    padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +28,7 @@ header {
 
 /* Logo maior */
 header .logo {
-    width: 120px;  /* Ajuste o tamanho conforme necessário */
+    width: 200px;  /* Ajuste o tamanho conforme necessário */
     height: auto;
     object-fit: contain;  /* Garante que a imagem mantenha suas proporções */
 }
@@ -37,19 +37,20 @@ header .logo {
 #map {
     width: 100%;
     height: 80vh;
-    border: 3px solid #00aaff;
+    border: 3px solid #00aaff;  /* Cor da borda do mapa alterada para #00aaff */
     margin-bottom: 20px; /* Remover qualquer espaçamento extra abaixo do mapa */
 }
 
 /* Rodapé estilizado */
 footer {
-    background: #00aaff;
+    background: #00aaff;  /* Cor alterada para #00aaff */
     color: white;
     padding: 10px;
     font-size: 1em;
     width: 100%;
     margin-top: auto; /* Faz o footer se manter na parte inferior */
-    }
+    position: relative;  /* Garante que o rodapé fique sempre na parte inferior */
+}
 
 /* Responsividade para telas menores */
 @media (max-width: 768px) {
