@@ -8,7 +8,7 @@ var map = L.map('map', {
 });
 
 // Definir as dimensões da imagem do mapa
-var w = 100%, h = 100%; // Ajuste para o tamanho real da sua imagem
+var w = 2000, h = 1500; // Ajuste para o tamanho real da sua imagem
 var bounds = [[0, 0], [h, w]];
 
 // Adicionar a imagem do mapa
