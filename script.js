@@ -1,45 +1,27 @@
 // Criar o mapa interativo
 var map = L.map('map', {
-    minZoom: -2,  // Permite afastar mais o zoom
-    maxZoom: 4,   // Permite zoom in
-    center: [0, 0], 
-    zoom: 1,       
-    crs: L.CRS.Simple,
-    scrollWheelZoom: true,  
-    dragging: true, 
-    maxBoundsViscosity: 1.0
+    minZoom: -1, // Permite zoom out extra
+    maxZoom: 4,
+    center: [0, 0],
+    zoom: 1,
+    crs: L.CRS.Simple
 });
 
-// Carregar a imagem e definir limites automaticamente
-var image = new Image();
-image.src = 'mapa.jpg'; 
+// Definir as dimensões da imagem do mapa
+var w = 2000, h = 1500; // Ajuste para o tamanho real da sua imagem
+var bounds = [[0, 0], [h, w]];
 
-image.onload = function() {
-    var w = image.width;
-    var h = image.height;
-    var bounds = [[0, 0], [h, w]];
+// Adicionar a imagem do mapa
+L.imageOverlay('mapa.jpg', bounds).addTo(map);
 
-    // Adicionar a imagem ao mapa
-    var imageOverlay = L.imageOverlay(image.src, bounds).addTo(map);
+// Ajustar a exibição inicial para caber na tela
+map.fitBounds(bounds);
 
-    // **CALCULAR O ZOOM INICIAL AUTOMATICAMENTE**
-    var screenWidth = window.innerWidth;
-    var screenHeight = window.innerHeight;
-    
-    var widthRatio = screenWidth / w;
-    var heightRatio = screenHeight / h;
-    
-    var initialZoom = Math.log2(Math.min(widthRatio, heightRatio));  // Calcula o zoom inicial correto
+// Limitar a área de arrasto para não sair da imagem
+map.setMaxBounds(bounds);
 
-    map.setMinZoom(initialZoom); // Define um zoom mínimo dinâmico
-    map.setView([h / 2, w / 2], initialZoom); // Centraliza a imagem e ajusta o zoom inicial
-    
-    // Mantém os limites corretamente no celular e desktop
-    map.setMaxBounds(bounds);
-
-    // Corrige problemas de redimensionamento no celular
-    window.addEventListener('resize', function() {
-        map.invalidateSize();
-        map.setMaxBounds(bounds);
-    });
-};
+// Alternar entre modo claro e escuro
+const toggleTheme = document.getElementById('toggleTheme');
+toggleTheme.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+});
