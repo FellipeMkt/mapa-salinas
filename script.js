@@ -24,9 +24,3 @@ map.setMaxBounds(bounds);
 window.addEventListener('resize', () => {
     map.invalidateSize();
 });
-
-// Centralizar o mapa na posição inicial
-const centralizeBtn = document.getElementById('centralizeBtn');
-centralizeBtn.addEventListener('click', () => {
-    map.setView([0, 0], 1);  // Centraliza no ponto (0, 0) com zoom 1
-});
