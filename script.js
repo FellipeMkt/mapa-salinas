@@ -1,21 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mapa Ilustrativo de Salinópolis</title>
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-    
-    <!-- Leaflet.js (Biblioteca para o Mapa) -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-</head>
-<body>
-    <div id="map" style="margin-bottom: 10px;"></div>
-    
-    <!-- Scripts -->
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script src="script.js"></script>
-</body>
-</html>
+// Criar o mapa interativo
+var map = L.map('map', {
+    minZoom: -1, // Permite zoom out extra
+    maxZoom: 4,
+    center: [0, 0],
+    zoom: 1,
+    crs: L.CRS.Simple
+});
+
+// Definir as dimensões da imagem do mapa
+var w = 2000, h = 1500; // Ajuste para o tamanho real da sua imagem
+var bounds = [[0, 0], [h, w]];
+
+// Adicionar a imagem do mapa
+L.imageOverlay('mapa.jpg', bounds).addTo(map);
+
+// Ajustar a exibição inicial para caber na tela
+map.fitBounds(bounds);
+
+// Limitar a área de arrasto para não sair da imagem
+map.setMaxBounds(bounds);
+
+// Garantir que o mapa se ajuste corretamente em diferentes telas
+window.addEventListener('resize', () => {
+    map.invalidateSize();
+});
