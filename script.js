@@ -12,7 +12,7 @@ var w = 2000, h = 1500; // Ajuste para o tamanho real da sua imagem
 var bounds = [[0, 0], [h, w]];
 
 // Adicionar a imagem do mapa
-L.imageOverlay('mapa.svg', bounds).addTo(map);
+L.imageOverlay('MAPA SVG.svg', bounds).addTo(map);
 
 // Ajustar a exibição inicial para caber na tela
 map.fitBounds(bounds);
